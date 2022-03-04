@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using static System.Console;
 
 /*
  * This project is a collection of exersises that will teach students how to write clean and DRY code.
@@ -11,6 +12,10 @@ namespace CleanCodeExersises
     {
         static void Main(string[] args)
         {
+            WriteLine(IsLegalDrikingAgeClean(21));
+            bool test2 = IsLoggedInClean(true);
+            bool test3 = eligibleClean(new Employee());
+            WriteLine(GetPriceClean(true));
         }
         /*
          * Magic Number exercise
@@ -30,10 +35,10 @@ namespace CleanCodeExersises
          * Solution to Magic Number exercise
          * Use consts to describe the numbers you are using to your programs.
          */
-        public bool IsLegalDrikingAgeClean()
+        public static string IsLegalDrikingAgeClean(int age)
         {
-            throw new NotImplementedException();
-            //Write your solution here
+            const int leaglDrikingAge = 21;
+            return age >= leaglDrikingAge ? "it's legal for you to drink" : "it's not legal for you to drink";
         }
         /*
          * Be positive exersise
@@ -54,10 +59,19 @@ namespace CleanCodeExersises
         /*
          * Solution to Be positive exersise
          */
-        public bool IsLoggedInClean()
+        public static bool IsLoggedInClean(bool isLoggedIn)
         {
-            throw new NotImplementedException();
-            //Write your solution here
+            if (isLoggedIn == true)
+            {
+                WriteLine("Succesfully logged in.");
+                return true;
+            }
+            else
+            {
+                WriteLine("Failed to logged in.");
+                return false;
+            }
+
         }
         /*
          * Intermediate exercise
@@ -80,12 +94,23 @@ namespace CleanCodeExersises
          * Solution to ohm Intermediate exercise
          * An intermediate Variable says a lot more them a long expression
          */
-        public bool eligibleClean()
+        public static bool eligibleClean(Employee employee)
         {
-            throw new NotImplementedException();
-            //Write your solution here
+            const int employeeMaxAge = 55;
+            const int yearsEmployed = 10;
+            if (employee.Age > employeeMaxAge && employee.YearsEmployed > yearsEmployed && employee.IsRetired == true)
+            {
+                WriteLine($"this employee is under {employeeMaxAge} and has been employed for {yearsEmployed} years and is retired");
+                return true;
+            }
+            else
+            {
+                WriteLine($"this employee is under {employeeMaxAge} and has been employed for under {yearsEmployed} years and is not retired");
+                return false;
+            }
+
         }
-        
+
         /*
          * Ternary exersise
          */
@@ -94,7 +119,8 @@ namespace CleanCodeExersises
             if (isPreordered == true)
             {
                 return 200.00;
-            } else
+            }
+            else
             {
                 return 350.00;
             }
@@ -103,10 +129,9 @@ namespace CleanCodeExersises
          * Solution to Ternary exersise
          * Use a oneline Ternary.
          */
-        public double GetPriceClean()
+        public static double GetPriceClean(bool isPreordered)
         {
-            throw new NotImplementedException();
-            //Write your solution here
+            return isPreordered ? 200.00 : 350.00;
         }
         /*
          * Strong type exersise - not done
