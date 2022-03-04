@@ -13,8 +13,8 @@ namespace CleanCodeExersises
         static void Main(string[] args)
         {
             WriteLine(IsLegalDrikingAgeClean(21));
-            bool test2 = IsLoggedInClean(true);
-            bool test3 = eligibleClean(new Employee());
+            WriteLine(IsLoggedInClean(true));
+            WriteLine(eligibleClean(new Employee()));
             WriteLine(GetPriceClean(true));
         }
         /*
@@ -59,18 +59,9 @@ namespace CleanCodeExersises
         /*
          * Solution to Be positive exersise
          */
-        public static bool IsLoggedInClean(bool isLoggedIn)
+        public static string IsLoggedInClean(bool isLoggedIn)
         {
-            if (isLoggedIn == true)
-            {
-                WriteLine("Succesfully logged in.");
-                return true;
-            }
-            else
-            {
-                WriteLine("Failed to logged in.");
-                return false;
-            }
+            return isLoggedIn != true ? "Succesfully logged in." : "Failed to logged in.";
 
         }
         /*
@@ -94,20 +85,11 @@ namespace CleanCodeExersises
          * Solution to ohm Intermediate exercise
          * An intermediate Variable says a lot more them a long expression
          */
-        public static bool eligibleClean(Employee employee)
+        public static string eligibleClean(Employee employee)
         {
             const int employeeMaxAge = 55;
             const int yearsEmployed = 10;
-            if (employee.Age > employeeMaxAge && employee.YearsEmployed > yearsEmployed && employee.IsRetired == true)
-            {
-                WriteLine($"this employee is under {employeeMaxAge} and has been employed for {yearsEmployed} years and is retired");
-                return true;
-            }
-            else
-            {
-                WriteLine($"this employee is under {employeeMaxAge} and has been employed for under {yearsEmployed} years and is not retired");
-                return false;
-            }
+            return employee.Age > employeeMaxAge && employee.YearsEmployed > yearsEmployed && employee.IsRetired == true ? "employee is eligible" : "employee is not eligible";
 
         }
 
