@@ -61,7 +61,7 @@ namespace CleanCodeExersises
          */
         public static string IsLoggedInClean(bool isLoggedIn)
         {
-            return LoggedIn != true ? "Succesfully logged in." : "Failed to logged in.";
+            return isLoggedIn ? "Succesfully logged in." : "Failed to logged in.";
 
         }
         /*
