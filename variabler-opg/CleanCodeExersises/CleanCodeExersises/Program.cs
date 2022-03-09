@@ -61,7 +61,7 @@ namespace CleanCodeExersises
          */
         public static string IsLoggedInClean(bool isLoggedIn)
         {
-            return isLoggedIn != true ? "Succesfully logged in." : "Failed to logged in.";
+            return LoggedIn != true ? "Succesfully logged in." : "Failed to logged in.";
 
         }
         /*
@@ -89,7 +89,10 @@ namespace CleanCodeExersises
         {
             const int employeeMaxAge = 55;
             const int yearsEmployed = 10;
-            return employee.Age > employeeMaxAge && employee.YearsEmployed > yearsEmployed && employee.IsRetired == true ? "employee is eligible" : "employee is not eligible";
+            return employee.Age > employeeMaxAge
+                && employee.YearsEmployed > yearsEmployed
+                && employee.IsRetired == true
+                ? "employee is eligible" : "employee is not eligible";
 
         }
 
