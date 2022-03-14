@@ -1,7 +1,6 @@
 ﻿using static System.Console;
 
 int Sizeof = sizeof(int);
-/*int.MaxValue*/
 WriteLine($"int er {Sizeof} bytes stor");
 WriteLine($"int kan holde {int.MaxValue} værdier");
 DiagramOfDataTypsSize();
