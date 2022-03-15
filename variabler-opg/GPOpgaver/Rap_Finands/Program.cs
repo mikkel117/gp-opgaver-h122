@@ -93,13 +93,29 @@ namespace Rap_Finands
             }
             Console.WriteLine("Vælg et tal fra 1 til " + konti.Count);
             Console.Write(">");
-            int tal = int.Parse(Console.ReadLine());
+            /*lavet en in tal*/
+            int tal = 0;
+            /*lavet en try/catch så hvis man ikke skriver noget eller skriver et bukstav-*/
+            /*crasher programmet ikke men startter forfra*/
+            try
+            {
+                tal = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("du må kun skrive et numer");
+                Console.WriteLine("tryk enter til at startte igen");
+                Console.ReadKey();
+                dos_start();
+            }
+
             if (tal < 1 || tal > konti.Count)
             {
                 Console.WriteLine("Ugyldigt valg");
                 Console.Clear();
                 return null;
             }
+
             return konti[tal - 1];
         }
         static void dos_opretTransaktion(Konto k)
@@ -166,7 +182,6 @@ namespace Rap_Finands
                 Console.WriteLine(t.saldo);
             }
             Console.WriteLine("================\n");
-
         }
 
         public static bool GemTrans(Konto konto, string tekst, float beløb)
