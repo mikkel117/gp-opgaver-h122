@@ -15,10 +15,10 @@ void QuickSort(int left, int right)
 
 void split(int[] arr, int left, int right)
 {
-    int pivot = arr[l];
+    int pivot = arr[left];
     int i = left, indexLow = 0, indexHigh = 0;
-    int[] low = new int[intArray.Length / 2];
-    int[] high = new int[intArray.Length / 2];
+    int[] low = new int[arr.Length];
+    int[] high = new int[arr.Length];
 
     while (i < right)
     {
@@ -37,14 +37,22 @@ void split(int[] arr, int left, int right)
     WriteLine("low");
     test(low);
 
-    WriteLine("high");
-    test(high);
+    /* WriteLine("high");
+     test(high);*/
 }
 
 void test(int[] arr)
 {
-    foreach (var item in arr)
+    /*foreach (var item in arr)
     {
         WriteLine(item);
+    }*/
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] != 0)
+        {
+            WriteLine(arr[i]);
+        }
     }
 }
